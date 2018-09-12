@@ -33,6 +33,28 @@ az network dns zone create -g MyAzureResourceGroup \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
+Create 2 VMs:  
+```
+az vm create \
+ -n myvm1 \
+ --admin-username test-user \
+ -g MyAzureResourceGroup \
+ -l eastus \
+ --subnet backendSubnet \
+ --vnet-name myAzureVnet \
+ --generate-ssh-keys \
+ --image UbuntuLTS
+
+az vm create \
+ -n myvm2 \
+ --admin-username test-user \
+ -g MyAzureResourceGroup \
+ -l eastus \
+ --subnet backendSubnet \
+ --vnet-name myAzureVnet \
+ --generate-ssh-keys \
+ --image UbuntuLTS
+```
 
 ### Conclusion
 support@cloudacademy.com
