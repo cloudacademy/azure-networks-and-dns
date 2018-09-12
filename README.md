@@ -10,10 +10,14 @@ nslookup www.contoso.net <name_server>.azure-dns.com
 ```
 
 ### Private Domains
-From https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli
+From https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli  
+
+Create a resource group:  
 ```
 az group create --name MyAzureResourceGroup --location "East US"
-
+```
+Create a virtual network:  
+```
 az network vnet create \
   --name myAzureVNet \
   --resource-group MyAzureResourceGroup \
@@ -21,7 +25,9 @@ az network vnet create \
   --address-prefix 10.2.0.0/16 \
   --subnet-name backendSubnet \
   --subnet-prefix 10.2.0.0/24
-
+```
+Create a private DNS zone:  
+```
 az network dns zone create -g MyAzureResourceGroup \
    -n contoso.local \
   --zone-type Private \
