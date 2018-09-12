@@ -10,6 +10,7 @@ nslookup www.contoso.net <name_server>.azure-dns.com
 ```
 
 ### Private Domains
+From https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli
 ```
 az group create --name MyAzureResourceGroup --location "East US"
 
