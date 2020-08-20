@@ -28,10 +28,11 @@ az network vnet create \
 ```
 Create a private DNS zone:  
 ```
-az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
-  --zone-type Private \
-  --registration-vnets myAzureVNet
+az network private-dns zone create -g MyAzureResourceGroup \
+   -n private.contoso.com
+
+az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink \
+   -z private.contoso.com -v myAzureVNet -e true
 ```
 Create 2 VMs:  
 ```
